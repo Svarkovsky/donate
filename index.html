@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support s3-msx-pc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 40px;
+        }
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .section h2 {
+            color: #f0883e;
+            margin-bottom: 16px;
+            font-size: 1.3em;
+        }
+        .crypto-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .crypto-table th,
+        .crypto-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #30363d;
+        }
+        .crypto-table th {
+            color: #8b949e;
+            font-weight: 600;
+        }
+        .address {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.85em;
+            background: #0d1117;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .address:hover {
+            border-color: #58a6ff;
+        }
+        .bank-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .bank-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #238636;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .bank-btn:hover {
+            background: #2ea043;
+        }
+        .warning {
+            background: rgba(210, 153, 34, 0.1);
+            border-left: 4px solid #d29922;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning strong {
+            color: #d29922;
+        }
+        .footer {
+            text-align: center;
+            color: #8b949e;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+        }
+        .copy-hint {
+            font-size: 0.75em;
+            color: #58a6ff;
+            margin-top: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .address:hover + .copy-hint,
+        .address:focus + .copy-hint {
+            opacity: 1;
+        }
+        @media (max-width: 600px) {
+            .crypto-table {
+                font-size: 0.8em;
+            }
+            .address {
+                font-size: 0.7em;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💙 Support This Project</h1>
+    <p class="subtitle">Thank you for considering supporting s3-msx-pc! Every donation helps keep development active.</p>
+
+    <div class="section">
+        <h2>🚀 Cryptocurrency (Recommended)</h2>
+        <p style="margin-bottom: 16px; color: #8b949e;">Fast, borderless, and low fees. Click address to copy.</p>
+        <table class="crypto-table">
+            <tr>
+                <th>Coin</th>
+                <th>Network</th>
+                <th>Address</th>
+            </tr>
+            <tr>
+                <td><strong>USDT</strong></td>
+                <td>Tron (TRC-20)</td>
+                <td>
+                    <div class="address" onclick="copy(this)">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div>
+                    <div class="copy-hint">Click to copy</div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>BTC</strong></td>
+                <td>Bitcoin</td>
+                <td>
+                    <div class="address" onclick="copy(this)">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div>
+                    <div class="copy-hint">Click to copy</div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>ETH</strong></td>
+                <td>Ethereum (ERC-20)</td>
+                <td>
+                    <div class="address" onclick="copy(this)">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div>
+                    <div class="copy-hint">Click to copy</div>
+                </td>
+            </tr>
+        </table>
+        <div class="warning">
+            <strong>⚠️ Important:</strong> Always double-check the network before sending. Sending USDT to the wrong network (e.g., ERC-20 instead of TRC-20) will result in permanent loss of funds.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🏦 Bank Transfer (PrivatBank)</h2>
+        <p style="margin-bottom: 16px; color: #8b949e;">For those who prefer traditional banking.</p>
+        <div class="bank-links">
+            <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank">🇺🇦 Donate UAH</a>
+            <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank">🇪🇺 Donate EUR</a>
+            <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank">🇺🇸 Donate USD</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>All donations go toward the development of this project.</p>
+        <p style="margin-top: 8px;">🙏 Thank you!</p>
+    </div>
+
+    <script>
+        function copy(element) {
+            navigator.clipboard.writeText(element.textContent).then(() => {
+                const hint = element.nextElementSibling;
+                const original = hint.textContent;
+                hint.textContent = '✓ Copied!';
+                hint.style.opacity = '1';
+                setTimeout(() => {
+                    hint.textContent = original;
+                    hint.style.opacity = '0';
+                }, 1500);
+            });
+        }
+    </script>
+
+</body>
+</html>
