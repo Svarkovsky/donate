@@ -6,7 +6,6 @@
     <title>Support s3-msx-pc</title>
     <style>
         :root {
-            /* Light Theme - Warm Minimalism */
             --bg: #faf8f5;
             --bg-section: #ffffff;
             --border: #e8e1d5;
@@ -27,7 +26,6 @@
         }
 
         [data-theme="dark"] {
-            /* Dark Theme - Deep Velvet */
             --bg: #161318;
             --bg-section: #1e1b20;
             --border: #2d2930;
@@ -47,18 +45,14 @@
             --gradient-section: linear-gradient(180deg, #1e1b20 0%, #19161c 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             background: var(--gradient-1);
             color: var(--text);
             line-height: 1.6;
-            padding: 40px 20px;
+            padding: 20px;
             max-width: 840px;
             margin: 0 auto;
             min-height: 100vh;
@@ -66,28 +60,67 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-section);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .lang-btn {
+            padding: 8px 14px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .lang-btn:hover {
+            color: var(--text);
+            background: var(--accent-soft);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+        }
+
         .theme-toggle {
-            position: fixed;
-            top: 28px;
-            right: 28px;
             background: var(--bg-section);
             border: 1px solid var(--border);
             border-radius: 50%;
-            width: 46px;
-            height: 46px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: var(--shadow);
-            z-index: 100;
-            backdrop-filter: blur(8px);
         }
 
         .theme-toggle:hover {
-            transform: scale(1.08) rotate(8deg);
+            transform: scale(1.08);
             border-color: var(--accent);
             box-shadow: 0 0 0 6px var(--accent-soft);
         }
@@ -95,12 +128,11 @@
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 44px;
+            margin-bottom: 36px;
         }
 
         .header-icon {
-            font-size: 3.2em;
-            margin-bottom: 8px;
+            font-size: 3em;
             display: block;
             animation: float 3s ease-in-out infinite;
         }
@@ -111,22 +143,18 @@
         }
 
         h1 {
-            color: var(--text);
-            margin-bottom: 8px;
-            font-size: 2.4em;
+            font-size: 2.2em;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        h1 span {
-            color: var(--accent);
-        }
+        h1 span { color: var(--accent); }
 
         .subtitle {
             color: var(--text-secondary);
-            font-size: 1.1em;
-            max-width: 460px;
-            margin: 0 auto;
+            font-size: 1.05em;
+            max-width: 500px;
+            margin: 8px auto 0;
         }
 
         /* Sections */
@@ -134,8 +162,8 @@
             background: var(--gradient-section);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
+            padding: 30px;
+            margin-bottom: 22px;
             transition: all 0.4s;
             box-shadow: var(--shadow);
             position: relative;
@@ -145,31 +173,26 @@
         .section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
             opacity: 0.3;
             transition: opacity 0.4s;
         }
 
-        .section:hover::before {
-            opacity: 0.7;
-        }
+        .section:hover::before { opacity: 0.7; }
 
         .section h2 {
-            color: var(--text);
-            margin-bottom: 6px;
-            font-size: 1.35em;
+            font-size: 1.3em;
             font-weight: 600;
             letter-spacing: -0.3px;
+            margin-bottom: 4px;
         }
 
-        .section .section-desc {
+        .section-desc {
             color: var(--text-secondary);
-            margin-bottom: 24px;
-            font-size: 0.95em;
+            margin-bottom: 22px;
+            font-size: 0.93em;
         }
 
         /* Crypto Table */
@@ -178,9 +201,8 @@
             border-collapse: collapse;
         }
 
-        .crypto-table th,
-        .crypto-table td {
-            padding: 16px 14px;
+        .crypto-table th, .crypto-table td {
+            padding: 15px 12px;
             text-align: left;
             border-bottom: 1px solid var(--border);
         }
@@ -188,30 +210,26 @@
         .crypto-table th {
             color: var(--text-secondary);
             font-weight: 500;
-            font-size: 0.78em;
+            font-size: 0.76em;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.7px;
         }
 
-        .crypto-table tr:last-child td {
-            border-bottom: none;
-        }
+        .crypto-table tr:last-child td { border-bottom: none; }
 
         .coin-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             font-weight: 700;
-            font-size: 0.95em;
+            font-size: 0.93em;
         }
 
         .coin-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             border-radius: 50%;
             display: inline-block;
         }
-
         .dot-usdt { background: #26a17b; }
         .dot-btc { background: #f7931a; }
         .dot-eth { background: #627eea; }
@@ -221,18 +239,16 @@
             padding: 4px 10px;
             background: var(--accent-soft);
             border-radius: 20px;
-            font-size: 0.8em;
+            font-size: 0.78em;
             color: var(--accent);
             font-weight: 500;
         }
 
-        .address-wrap {
-            position: relative;
-        }
+        .address-wrap { position: relative; }
 
         .address {
             font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Monaco, monospace;
-            font-size: 0.82em;
+            font-size: 0.8em;
             background: var(--code-bg);
             padding: 10px 14px;
             border-radius: 8px;
@@ -241,7 +257,6 @@
             transition: all 0.25s;
             word-break: break-all;
             display: inline-block;
-            color: var(--text);
             max-width: 100%;
         }
 
@@ -253,52 +268,40 @@
         }
 
         .copy-hint {
-            font-size: 0.72em;
+            font-size: 0.7em;
             color: var(--accent);
-            margin-top: 5px;
+            margin-top: 4px;
             font-weight: 500;
             opacity: 0;
             transition: opacity 0.25s;
             pointer-events: none;
         }
 
-        .address:hover + .copy-hint,
-        .address:focus + .copy-hint {
-            opacity: 1;
-        }
+        .address:hover + .copy-hint { opacity: 1; }
+        .copied-state .address { border-color: var(--btn-bg) !important; background: rgba(90,125,90,0.08) !important; }
+        .copied-state .copy-hint { opacity: 1 !important; color: var(--btn-bg); }
 
-        .copied-state .address {
-            border-color: var(--btn-bg) !important;
-            background: rgba(90, 125, 90, 0.08) !important;
-        }
-
-        .copied-state .copy-hint {
-            opacity: 1 !important;
-            color: var(--btn-bg);
-        }
-
-        /* Bank Buttons */
+        /* Bank */
         .bank-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 8px;
+            gap: 12px;
+            margin-top: 6px;
         }
 
         .bank-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
+            gap: 8px;
+            padding: 13px 24px;
             background: var(--btn-bg);
             color: #fff;
             text-decoration: none;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 0.95em;
+            font-size: 0.93em;
             transition: all 0.25s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            letter-spacing: -0.2px;
         }
 
         .bank-btn:hover {
@@ -307,37 +310,27 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .bank-btn:active {
-            transform: translateY(0);
-        }
-
-        .bank-flag {
-            font-size: 1.2em;
-        }
-
         /* Warning */
         .warning {
             background: var(--warning-bg);
             border-left: 4px solid var(--warning-border);
-            padding: 16px 20px;
-            margin-top: 24px;
+            padding: 14px 18px;
+            margin-top: 22px;
             border-radius: 0 10px 10px 0;
-            font-size: 0.9em;
+            font-size: 0.88em;
             line-height: 1.5;
         }
 
-        .warning strong {
-            color: var(--warning-text);
-        }
+        .warning strong { color: var(--warning-text); }
 
         /* Footer */
         .footer {
             text-align: center;
             color: var(--text-secondary);
-            margin-top: 48px;
-            padding-top: 28px;
+            margin-top: 44px;
+            padding-top: 26px;
             border-top: 1px solid var(--border);
-            font-size: 0.9em;
+            font-size: 0.88em;
         }
 
         .footer .heart {
@@ -365,145 +358,193 @@
             padding: 12px 24px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.88em;
             z-index: 200;
             transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
             pointer-events: none;
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
 
-        /* Responsive */
         @media (max-width: 600px) {
-            body { padding: 24px 14px; }
-            h1 { font-size: 1.7em; }
-            .section { padding: 22px 18px; }
-            .crypto-table { font-size: 0.82em; }
-            .crypto-table th, .crypto-table td { padding: 12px 8px; }
-            .address { font-size: 0.72em; padding: 8px 10px; }
+            body { padding: 16px 12px; }
+            h1 { font-size: 1.6em; }
+            .section { padding: 20px 16px; }
+            .crypto-table th, .crypto-table td { padding: 11px 7px; }
+            .address { font-size: 0.7em; padding: 8px 10px; }
             .bank-links { flex-direction: column; }
             .bank-btn { justify-content: center; }
-            .theme-toggle { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
+            .lang-btn { padding: 6px 10px; font-size: 0.78em; }
         }
+
+        /* RTL support for JP? Nah, JP is LTR. */
+        .hidden-lang { display: none; }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="uk" onclick="switchLang('uk')">🇺🇦 UA</button>
+            <button class="lang-btn" data-lang="de" onclick="switchLang('de')">🇩🇪 DE</button>
+            <button class="lang-btn" data-lang="ja" onclick="switchLang('ja')">🇯🇵 JP</button>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    </div>
 
-    <!-- Toast notification -->
+    <!-- Toast -->
     <div class="toast" id="toast"></div>
 
-    <!-- Header -->
-    <div class="header">
-        <span class="header-icon">☕</span>
-        <h1>Support <span>s3-msx-pc</span></h1>
-        <p class="subtitle">Every contribution fuels development and keeps this project alive.</p>
-    </div>
-
-    <!-- Crypto Section -->
-    <div class="section">
-        <h2>₿ Cryptocurrency</h2>
-        <p class="section-desc">Recommended — fast, borderless, and low fees. Click any address to copy.</p>
-        <table class="crypto-table">
-            <tr>
-                <th>Coin</th>
-                <th>Network</th>
-                <th>Address</th>
-            </tr>
-            <tr>
-                <td>
-                    <span class="coin-badge">
-                        <span class="coin-dot dot-usdt"></span> USDT
-                    </span>
-                </td>
-                <td><span class="network-tag">Tron (TRC-20)</span></td>
-                <td>
-                    <div class="address-wrap">
-                        <div class="address" onclick="copyAddress(this, 'TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K')">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div>
-                        <div class="copy-hint">Click to copy</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="coin-badge">
-                        <span class="coin-dot dot-btc"></span> BTC
-                    </span>
-                </td>
-                <td><span class="network-tag">Bitcoin</span></td>
-                <td>
-                    <div class="address-wrap">
-                        <div class="address" onclick="copyAddress(this, '13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4')">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div>
-                        <div class="copy-hint">Click to copy</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="coin-badge">
-                        <span class="coin-dot dot-eth"></span> ETH
-                    </span>
-                </td>
-                <td><span class="network-tag">Ethereum (ERC-20)</span></td>
-                <td>
-                    <div class="address-wrap">
-                        <div class="address" onclick="copyAddress(this, '0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div>
-                        <div class="copy-hint">Click to copy</div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div class="warning">
-            <strong>⚠️ Important:</strong> Always verify the network before sending. Sending assets to the wrong network may result in permanent loss of funds.
+    <!-- ==================== ENGLISH ==================== -->
+    <div class="lang-content" lang="en">
+        <div class="header">
+            <span class="header-icon">☕</span>
+            <h1>Support <span>s3-msx-pc</span></h1>
+            <p class="subtitle">Every contribution fuels development and keeps this project alive.</p>
+        </div>
+        <div class="section">
+            <h2>₿ Cryptocurrency</h2>
+            <p class="section-desc">Recommended — fast, borderless, and low fees. Click any address to copy.</p>
+            <table class="crypto-table">
+                <tr><th>Coin</th><th>Network</th><th>Address</th></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-usdt"></span> USDT</span></td><td><span class="network-tag">Tron (TRC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K')">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div><div class="copy-hint">Click to copy</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-btc"></span> BTC</span></td><td><span class="network-tag">Bitcoin</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4')">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div><div class="copy-hint">Click to copy</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-eth"></span> ETH</span></td><td><span class="network-tag">Ethereum (ERC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div><div class="copy-hint">Click to copy</div></div></td></tr>
+            </table>
+            <div class="warning"><strong>⚠️ Important:</strong> Always verify the network before sending. Sending to the wrong network may result in permanent loss.</div>
+        </div>
+        <div class="section">
+            <h2>🏦 Bank Transfer</h2>
+            <p class="section-desc">Traditional banking via PrivatBank — secure and straightforward.</p>
+            <div class="bank-links">
+                <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇦</span> Donate UAH</a>
+                <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank" rel="noopener"><span>🇪🇺</span> Donate EUR</a>
+                <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇸</span> Donate USD</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Made with <span class="heart">❤️</span> for the open-source community</p>
+            <p>Thank you for your support!</p>
         </div>
     </div>
 
-    <!-- Bank Section -->
-    <div class="section">
-        <h2>🏦 Bank Transfer</h2>
-        <p class="section-desc">Traditional banking via PrivatBank — secure and straightforward.</p>
-        <div class="bank-links">
-            <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank" rel="noopener">
-                <span class="bank-flag">🇺🇦</span> Donate UAH
-            </a>
-            <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank" rel="noopener">
-                <span class="bank-flag">🇪🇺</span> Donate EUR
-            </a>
-            <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank" rel="noopener">
-                <span class="bank-flag">🇺🇸</span> Donate USD
-            </a>
+    <!-- ==================== УКРАЇНСЬКА ==================== -->
+    <div class="lang-content hidden-lang" lang="uk">
+        <div class="header">
+            <span class="header-icon">☕</span>
+            <h1>Підтримати <span>s3-msx-pc</span></h1>
+            <p class="subtitle">Кожен внесок допомагає розвитку проєкту.</p>
+        </div>
+        <div class="section">
+            <h2>₿ Криптовалюта</h2>
+            <p class="section-desc">Рекомендовано — швидко, без кордонів, низькі комісії. Натисніть на адресу, щоб скопіювати.</p>
+            <table class="crypto-table">
+                <tr><th>Монета</th><th>Мережа</th><th>Адреса</th></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-usdt"></span> USDT</span></td><td><span class="network-tag">Tron (TRC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K')">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div><div class="copy-hint">Натисніть, щоб скопіювати</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-btc"></span> BTC</span></td><td><span class="network-tag">Bitcoin</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4')">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div><div class="copy-hint">Натисніть, щоб скопіювати</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-eth"></span> ETH</span></td><td><span class="network-tag">Ethereum (ERC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div><div class="copy-hint">Натисніть, щоб скопіювати</div></div></td></tr>
+            </table>
+            <div class="warning"><strong>⚠️ Важливо:</strong> Завжди перевіряйте мережу перед відправкою. Відправка в неправильну мережу призведе до втрати коштів.</div>
+        </div>
+        <div class="section">
+            <h2>🏦 Банківський переказ</h2>
+            <p class="section-desc">Традиційний банкінг через ПриватБанк — безпечно та просто.</p>
+            <div class="bank-links">
+                <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇦</span> Надіслати UAH</a>
+                <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank" rel="noopener"><span>🇪🇺</span> Надіслати EUR</a>
+                <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇸</span> Надіслати USD</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Зроблено з <span class="heart">❤️</span> для спільноти відкритого коду</p>
+            <p>Дякуємо за підтримку!</p>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>Made with <span class="heart">❤️</span> for the open-source community</p>
-        <p>Thank you for your support!</p>
+    <!-- ==================== DEUTSCH ==================== -->
+    <div class="lang-content hidden-lang" lang="de">
+        <div class="header">
+            <span class="header-icon">☕</span>
+            <h1>Unterstütze <span>s3-msx-pc</span></h1>
+            <p class="subtitle">Jeder Beitrag fördert die Entwicklung und hält dieses Projekt am Leben.</p>
+        </div>
+        <div class="section">
+            <h2>₿ Kryptowährung</h2>
+            <p class="section-desc">Empfohlen — schnell, grenzenlos, niedrige Gebühren. Adresse zum Kopieren anklicken.</p>
+            <table class="crypto-table">
+                <tr><th>Coin</th><th>Netzwerk</th><th>Adresse</th></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-usdt"></span> USDT</span></td><td><span class="network-tag">Tron (TRC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K')">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div><div class="copy-hint">Zum Kopieren klicken</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-btc"></span> BTC</span></td><td><span class="network-tag">Bitcoin</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4')">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div><div class="copy-hint">Zum Kopieren klicken</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-eth"></span> ETH</span></td><td><span class="network-tag">Ethereum (ERC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div><div class="copy-hint">Zum Kopieren klicken</div></div></td></tr>
+            </table>
+            <div class="warning"><strong>⚠️ Wichtig:</strong> Überprüfe immer das Netzwerk vor dem Senden. Falsches Netzwerk führt zu dauerhaftem Verlust.</div>
+        </div>
+        <div class="section">
+            <h2>🏦 Banküberweisung</h2>
+            <p class="section-desc">Traditionelles Banking über PrivatBank — sicher und unkompliziert.</p>
+            <div class="bank-links">
+                <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇦</span> UAH senden</a>
+                <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank" rel="noopener"><span>🇪🇺</span> EUR senden</a>
+                <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇸</span> USD senden</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Gemacht mit <span class="heart">❤️</span> für die Open-Source-Community</p>
+            <p>Vielen Dank für deine Unterstützung!</p>
+        </div>
+    </div>
+
+    <!-- ==================== 日本語 ==================== -->
+    <div class="lang-content hidden-lang" lang="ja">
+        <div class="header">
+            <span class="header-icon">☕</span>
+            <h1><span>s3-msx-pc</span> を支援する</h1>
+            <p class="subtitle">すべての貢献が開発を支え、このプロジェクトを存続させます。</p>
+        </div>
+        <div class="section">
+            <h2>₿ 暗号通貨</h2>
+            <p class="section-desc">推奨 — 高速、国境なし、低手数料。アドレスをクリックしてコピー。</p>
+            <table class="crypto-table">
+                <tr><th>通貨</th><th>ネットワーク</th><th>アドレス</th></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-usdt"></span> USDT</span></td><td><span class="network-tag">Tron (TRC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K')">TMe7qMYJqrGtox4n8QeJKbpsfsmtWiRX9K</div><div class="copy-hint">クリックしてコピー</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-btc"></span> BTC</span></td><td><span class="network-tag">Bitcoin</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4')">13cr7bTvvZrKhFbZAXvv2NtfvpbRUWK2F4</div><div class="copy-hint">クリックしてコピー</div></div></td></tr>
+                <tr><td><span class="coin-badge"><span class="coin-dot dot-eth"></span> ETH</span></td><td><span class="network-tag">Ethereum (ERC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div><div class="copy-hint">クリックしてコピー</div></div></td></tr>
+            </table>
+            <div class="warning"><strong>⚠️ 重要:</strong> 送信前に必ずネットワークを確認してください。誤ったネットワークに送信すると資金が永久に失われます。</div>
+        </div>
+        <div class="section">
+            <h2>🏦 銀行振込</h2>
+            <p class="section-desc">PrivatBankを通じた従来の銀行取引 — 安全で簡単。</p>
+            <div class="bank-links">
+                <a href="https://www.privat24.ua/send/jx6m8" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇦</span> UAHを送る</a>
+                <a href="https://www.privat24.ua/send/jx6cj" class="bank-btn" target="_blank" rel="noopener"><span>🇪🇺</span> EURを送る</a>
+                <a href="https://www.privat24.ua/send/jx6l7" class="bank-btn" target="_blank" rel="noopener"><span>🇺🇸</span> USDを送る</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>オープンソースコミュニティに<span class="heart">❤️</span>を込めて</p>
+            <p>ご支援ありがとうございます！</p>
+        </div>
     </div>
 
     <script>
+        // Address copy
         function copyAddress(element, text) {
             const wrap = element.parentElement;
             navigator.clipboard.writeText(text).then(() => {
-                // Show copied state
                 wrap.classList.add('copied-state');
                 const hint = wrap.querySelector('.copy-hint');
-                hint.textContent = '✓ Copied!';
-                
-                // Show toast
-                showToast('Address copied to clipboard!');
-                
-                // Reset after 2 seconds
+                hint.textContent = '✓ ' + getCopiedText();
+                showToast(getToastText());
                 setTimeout(() => {
                     wrap.classList.remove('copied-state');
-                    hint.textContent = 'Click to copy';
+                    hint.textContent = getDefaultHintText();
                 }, 2000);
             }).catch(() => {
-                showToast('Failed to copy. Please try again.');
+                showToast('Failed to copy');
             });
         }
 
@@ -512,40 +553,73 @@
             toast.textContent = message;
             toast.classList.add('show');
             clearTimeout(toast._timeout);
-            toast._timeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
         }
 
+        // Language switching
+        const translations = {
+            en: { copied: 'Copied!', toast: 'Address copied to clipboard!', hint: 'Click to copy' },
+            uk: { copied: 'Скопійовано!', toast: 'Адресу скопійовано!', hint: 'Натисніть, щоб скопіювати' },
+            de: { copied: 'Kopiert!', toast: 'Adresse kopiert!', hint: 'Zum Kopieren klicken' },
+            ja: { copied: 'コピーしました！', toast: 'アドレスをコピーしました！', hint: 'クリックしてコピー' }
+        };
+
+        let currentLang = 'en';
+
+        function getCopiedText() { return translations[currentLang].copied; }
+        function getToastText() { return translations[currentLang].toast; }
+        function getDefaultHintText() { return translations[currentLang].hint; }
+
+        function switchLang(lang) {
+            currentLang = lang;
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            // Show/hide content
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.add('hidden-lang'));
+            document.querySelector(`.lang-content[lang="${lang}"]`).classList.remove('hidden-lang');
+            // Update html lang
+            document.documentElement.lang = lang;
+            // Save
+            localStorage.setItem('donate-lang', lang);
+            // Update hints
+            document.querySelectorAll('.copy-hint').forEach(h => {
+                if (!h.textContent.startsWith('✓')) h.textContent = translations[lang].hint;
+            });
+        }
+
+        // Theme toggle
         function toggleTheme() {
             const html = document.documentElement;
             const btn = document.querySelector('.theme-toggle');
             if (html.getAttribute('data-theme') === 'dark') {
                 html.removeAttribute('data-theme');
                 btn.textContent = '🌙';
-                btn.title = 'Switch to dark theme';
                 localStorage.setItem('theme', 'light');
             } else {
                 html.setAttribute('data-theme', 'dark');
                 btn.textContent = '☀️';
-                btn.title = 'Switch to light theme';
                 localStorage.setItem('theme', 'dark');
             }
         }
 
-        // Load saved theme
+        // Init
         (function() {
+            // Theme
             const savedTheme = localStorage.getItem('theme');
             const btn = document.querySelector('.theme-toggle');
             if (savedTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 btn.textContent = '☀️';
-                btn.title = 'Switch to light theme';
-            } else {
-                btn.title = 'Switch to dark theme';
             }
+            // Language
+            const savedLang = localStorage.getItem('donate-lang') || 'en';
+            switchLang(savedLang);
+            // URL param support (e.g. ?lang=ja)
+            const params = new URLSearchParams(window.location.search);
+            const urlLang = params.get('lang');
+            if (urlLang && translations[urlLang]) switchLang(urlLang);
         })();
     </script>
-
 </body>
 </html>
