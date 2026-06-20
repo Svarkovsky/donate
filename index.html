@@ -378,7 +378,6 @@
             .lang-btn { padding: 6px 10px; font-size: 0.78em; }
         }
 
-        /* RTL support for JP? Nah, JP is LTR. */
         .hidden-lang { display: none; }
     </style>
 </head>
@@ -416,6 +415,16 @@
             </table>
             <div class="warning"><strong>⚠️ Important:</strong> Always verify the network before sending. Sending to the wrong network may result in permanent loss.</div>
         </div>
+        <!-- PayPal Section EN -->
+        <div class="section">
+            <h2>💳 PayPal</h2>
+            <p class="section-desc">Fast and secure international transfers. Click the email address to copy.</p>
+            <div class="address-wrap" style="margin-bottom: 6px;">
+                <div class="address" onclick="copyAddress(this,'ivansvarkovsky@gmail.com')">ivansvarkovsky@gmail.com</div>
+                <div class="copy-hint">Click to copy</div>
+            </div>
+            <div class="warning"><strong>⚠️ Important:</strong> When sending via PayPal, please make sure to choose the <strong>"Friends & Family" (Personal)</strong> option. Commercial payments (Goods & Services) are currently limited for Ukrainian accounts.</div>
+        </div>
         <div class="section">
             <h2>🏦 Bank Transfer</h2>
             <p class="section-desc">Traditional banking via PrivatBank — secure and straightforward.</p>
@@ -448,6 +457,16 @@
                 <tr><td><span class="coin-badge"><span class="coin-dot dot-eth"></span> ETH</span></td><td><span class="network-tag">Ethereum (ERC-20)</span></td><td><div class="address-wrap"><div class="address" onclick="copyAddress(this,'0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5')">0xce0bd8000b4cf68c3f39a46dd80cbbfaea0e9ba5</div><div class="copy-hint">Натисніть, щоб скопіювати</div></div></td></tr>
             </table>
             <div class="warning"><strong>⚠️ Важливо:</strong> Завжди перевіряйте мережу перед відправкою. Відправка в неправильну мережу призведе до втрати коштів.</div>
+        </div>
+        <!-- PayPal Section UA -->
+        <div class="section">
+            <h2>💳 PayPal</h2>
+            <p class="section-desc">Швидкі та безпечні міжнародні перекази. Натисніть на email, щоб скопіювати.</p>
+            <div class="address-wrap" style="margin-bottom: 6px;">
+                <div class="address" onclick="copyAddress(this,'ivansvarkovsky@gmail.com')">ivansvarkovsky@gmail.com</div>
+                <div class="copy-hint">Натисніть, щоб скопіювати</div>
+            </div>
+            <div class="warning"><strong>⚠️ Важливо:</strong> При надсиланні через PayPal обов'язково обирайте варіант переказу <strong>"Для друзів та рідних" (Friends & Family)</strong>. Комерційні платежі для українських акаунтів наразі обмежені.</div>
         </div>
         <div class="section">
             <h2>🏦 Банківський переказ</h2>
@@ -482,6 +501,16 @@
             </table>
             <div class="warning"><strong>⚠️ Wichtig:</strong> Überprüfe immer das Netzwerk vor dem Senden. Falsches Netzwerk führt zu dauerhaftem Verlust.</div>
         </div>
+        <!-- PayPal Section DE -->
+        <div class="section">
+            <h2>💳 PayPal</h2>
+            <p class="section-desc">Schnelle und sichere internationale Überweisungen. Klicken, um die E-Mail-Adresse zu kopieren.</p>
+            <div class="address-wrap" style="margin-bottom: 6px;">
+                <div class="address" onclick="copyAddress(this,'ivansvarkovsky@gmail.com')">ivansvarkovsky@gmail.com</div>
+                <div class="copy-hint">Zum Kopieren klicken</div>
+            </div>
+            <div class="warning"><strong>⚠️ Wichtig:</strong> Bitte wählen Sie beim Senden über PayPal unbedingt die Option <strong>"Freunde & Familie" (Friends & Family)</strong>. Gewerbliche Zahlungen sind für ukrainische Konten derzeit eingeschränkt.</div>
+        </div>
         <div class="section">
             <h2>🏦 Banküberweisung</h2>
             <p class="section-desc">Traditionelles Banking über PrivatBank — sicher und unkompliziert.</p>
@@ -515,6 +544,16 @@
             </table>
             <div class="warning"><strong>⚠️ 重要:</strong> 送信前に必ずネットワークを確認してください。誤ったネットワークに送信すると資金が永久に失われます。</div>
         </div>
+        <!-- PayPal Section JA -->
+        <div class="section">
+            <h2>💳 PayPal</h2>
+            <p class="section-desc">迅速で安全な国際送金。メールアドレスをクリックしてコピー。</p>
+            <div class="address-wrap" style="margin-bottom: 6px;">
+                <div class="address" onclick="copyAddress(this,'ivansvarkovsky@gmail.com')">ivansvarkovsky@gmail.com</div>
+                <div class="copy-hint">クリックしてコピー</div>
+            </div>
+            <div class="warning"><strong>⚠️ 重要:</strong> PayPalで送金する際は、必ず <strong>「友達や家族」（Friends & Family）</strong> オプションを選択してください。ウクライナのアカウントでは現在、商業用決済が制限されています。</div>
+        </div>
         <div class="section">
             <h2>🏦 銀行振込</h2>
             <p class="section-desc">PrivatBankを通じた従来の銀行取引 — 安全で簡単。</p>
@@ -531,6 +570,14 @@
     </div>
 
     <script>
+        // Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
         // Address copy
         function copyAddress(element, text) {
             const wrap = element.parentElement;
@@ -546,14 +593,6 @@
             }).catch(() => {
                 showToast('Failed to copy');
             });
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('show');
-            clearTimeout(toast._timeout);
-            toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
         }
 
         // Language switching
